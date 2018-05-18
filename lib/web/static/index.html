@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<input id="username" type="text">
+				<input id="password" type="password">
+				<input id="signUpBtn" type="button" value="注册">
+			</div>
+			<br>
+			<br>
+			<div>
+				<input id="username2" type="text">
+				<input id="password2" type="password">
+				<input id="signUpBtn2" type="button" value="登录">
+				<input id="signOutBtn" type="button" value="退出">
+			</div>
+			<div>
+				<input id="friendsBtn" type="button" value="好友列表">
+			</div>
+		</div>
+		<script>
+			$('#signUpBtn').on('click', function () {
+				$.post('/signup', {
+					username: $('#username')[0].value,
+					password: $('#password')[0].value
+				});
+			});
+
+			$('#signUpBtn2').on('click', function () {
+				$.post('/signin', {
+					username: $('#username2')[0].value,
+					password: $('#password2')[0].value
+				});
+			});
+
+			$('#signOutBtn').on('click', function () {
+				$.post('/signout');
+			});
+
+			$('#friendsBtn').on('click', function () {
+				$.post('/friends', {
+					userId: 1
+				});
+			});
+		</script>
+	</body>
+</html>
